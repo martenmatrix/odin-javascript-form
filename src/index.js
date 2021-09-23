@@ -29,7 +29,7 @@ function checkInput(e) {
 
 function isFieldEmpty() {
     const inputsArray = Array.from(inputs);
-    const somethingEmpty = inputsArray.some((input) => input.value === '');
+    const somethingEmpty = inputsArray.some((input) => input.validity.valueMissing);
     if (somethingEmpty) return true;
     return false;
 }
@@ -38,6 +38,7 @@ function checkForm(e) {
     // stop form from sending request
     e.preventDefault();
     if (isFieldEmpty()) return;
+
     const isValid = e.currentTarget.reportValidity();
     if (isValid) e.currentTarget.submit();
 }
