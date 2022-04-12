@@ -1,4 +1,4 @@
-name: Your github action
+name: Publish to gh-pages
 
 on:
   push:
